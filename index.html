@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake-like Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <button class="menu-button">☰</button>
+            <img src="stake.png" alt="Stake" class="stake-logo">
+        </div>
+        <div class="navbar-right">
+            <button class="nav-button" style="background-color: #00e701">CASINO</button>
+            <button class="nav-button" style="background-color: #223c47;">SPORTS</button>
+            <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search" class="search-bar">
+            <i class="fa-solid fa-user"></i><i class="fa-solid fa-bell"></i><i class="fa-solid fa-envelope"></i>
+            <button class="wallet-button">Wallet</button>
+            <span class="currency">₹0.00<i class="fa-brands fa-bitcoin" style="transform: translateX(3px); color: yellow;"></i><i class="fa-solid fa-angle-down" style="transform: translateX(8px);"></i></span>
+        </div>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="sidebar-list">
+                <li><a href="#"><i class="fa fa-star"></i> Favourites</a></li>
+                <li><a href="#"><i class="fa fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fa fa-trophy"></i> Challenges</a></li>
+                <li><a href="#"><i class="fa fa-list"></i> My Bets</a></li>
+            </ul>
+            <ul class="sidebar-listB">
+            <li><a href="#">Games</a></li>
+            <li><a href="#"><i class="fa fa-diamond"></i> Stake Originals</a></li>
+            <li><a href="#"><i class="fa fa-gift"></i> Stake Exclusives</a></li>
+            <li><a href="#"><i class="fa fa-sliders"></i> Slots</a></li>
+            <li><a href="#"><i class="fa fa-play-circle"></i> Live Casino</a></li>
+            <li><a href="#"><i class="fa fa-tv"></i> Game Shows</a></li>
+            <li><a href="#"><i class="fa fa-bolt"></i> New Releases</a></li>
+            <li><a href="#"><i class="fa-solid fa-coins"></i> Stake Poker</a></li>
+            <li><a href="#"><i class="fa fa-bullseye"></i> Bonus Buy</a></li>
+            <li><a href="#"><i class="fa fa-percent"></i> Enhanced RTP</a></li>
+            <li><a href="#"><i class="fa fa-table"></i> Table Games</a></li>
+        </ul>
+        </aside>
+        <main class="main-content">
+            <div class="game-card">
+                <a href="mines.html" class="mines"> 
+                <img src="mines.jpeg" alt="Mines"></a>
+                <p>Mines</p>
+         </div>
+            <div class="game-card">
+                <img src="plinko.jpeg" alt="Plinko" style="opacity: 30%;">
+                <p>Plinko</p>
+            </div>
+            <div class="game-card">
+                <img src="dice.jpg" alt="Dice" style="opacity: 30%;">
+                <p>Dice</p>
+            </div>
+            <div class="game-card">
+                <img src="crash.jpg" alt="Crash" style="opacity: 30%;">
+                <p>Crash</p>
+            </div>
+            <div class="game-card">
+                <img src="dragontower.jpeg" alt="Dragon Tower" style="opacity: 30%;">
+                <p>Dragon Tower</p>
+            </div>
+            <div class="game-card">
+                <p style="opacity: 30%; transform: translateY(75px);" >Coming Soon</p>
+            </div>
+            <div class="game-card">
+                <p style="opacity: 30%; transform: translateY(75px)">Coming Soon</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
