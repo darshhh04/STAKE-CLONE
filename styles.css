@@ -1,0 +1,505 @@
+body {
+    font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 99vh;
+    background-color: #0f212f;
+    color: white;
+}
+
+.navbar {
+    width: 1495px;
+    height: 70px;
+    background-color: #1a2c38;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.stake-logo {
+    height: 40px;
+    filter: brightness(0) invert(1);
+    transform: translateX(240px);
+    cursor: pointer;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.nav-button {
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transform: translateX(-835px);
+    width: 100px;
+    background-color: gray;
+}
+.casino{
+    background-color: #00e701;
+}
+
+.sports{
+    background-color: #294350;
+}
+
+.casino:hover{
+    background-color: #04bd04;
+}
+
+.sports:hover{
+    background-color: #fe7701;
+}
+
+.search-bar {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #222;
+    color: white;
+    transform: translateX(30px);
+}
+
+.fa-magnifying-glass{
+    transform: translateX(205px);
+    z-index: 5;
+}
+
+.fa-user{
+    transform: translateX(50px);
+}
+
+.user-panel{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    height: 90px;
+    width: 260px;
+    background-color: #0f212e;
+    border-radius: 10px;
+    color: gray;
+    transform: translateX(240px) translateY(64px);
+    border: 1px white solid;
+}
+
+.notification-panel{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    height: 85px;
+    width: 215px;
+    background-color: #0f212e;
+    border-radius: 10px;
+    color: white;
+    transform: translateX(330px) translateY(62px);
+    border: 1px white solid;
+}
+
+.contact-panel{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    height: 90px;
+    width: 300px;
+    background-color: #0f212e;
+    border-radius: 10px;
+    color: white;
+    transform: translateX(290px) translateY(64px);
+    border: 1px white solid;
+}
+
+.wallet-panel{
+    z-index: 1;
+    position: absolute;
+    height: 150px;
+    width: 270px;
+    background-color: #0f212e;
+    border-radius: 10px;
+    color: gray;
+    transform: translateX(-280px) translateY(125px);
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px white solid;
+}
+
+#deposit-btn{
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #294350;
+    border: none;
+    padding: 11px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 130px;
+    color: white;
+}
+
+#deposit-btn:hover{
+    background-color: #fe7701;
+}
+
+#withdraw-btn{
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #294350;
+    border: none;
+    color: white;
+    transform: translateX(140px);
+    padding: 11px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 130px
+}
+
+#withdraw-btn:hover{
+    background-color: #04bd04;
+}
+
+#amount-input{
+    position: absolute;
+    transform: translateX(2px) translateY(60px);
+    width: 262px;
+    height: 25px;
+    background-color: #0f212e;
+    border: none;
+    border-bottom: 1px white solid;
+    color: white;
+    outline: none;
+}
+
+#submit-btn{
+    position: absolute;
+    transform: translateX(0px) translateY(110px);
+    border-radius: 5px;
+    width: 270px;
+    height: 40px;
+    border: none;
+    background-color: #294350;
+    color: white;
+}
+
+#submit-btn:hover{
+    background-color: #0066cc;
+}
+
+.fa-bell{
+    transform: translateX(80px);
+    cursor: pointer;
+}
+
+.fa-envelope{
+    transform: translateX(110px);
+    cursor: pointer;
+}
+
+.wallet-button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 10px 21.5px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transform: translateX(-645px);
+}
+
+#balance-display{
+    transform: translateX(-650px) translateY(-19px);
+}
+
+#balance {
+    font-size: 16px;
+    background-color: #121f32;
+    padding: 10px 35px;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #0f212f;
+    padding: 4px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    background-color: #1a2c38;
+    height: 20vh;
+}
+
+.sidebar-listB{
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    background-color: #1a2c38;
+    height: 58vh;
+    transform: translateY(4px);
+}
+
+.sidebar-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding: 11px 0px;
+
+}
+
+.sidebar-listB li a{
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding: 11px 0px;
+    margin-bottom: 3px;
+}
+
+.sidebar-list li a:hover {
+    background-color: #2f4553;
+    padding: 11px 0px;
+    border-radius: 5px;
+}
+
+.sidebar-listB li a:hover{
+    background-color: #2f4553;
+    padding: 11px 0px;
+    border-radius: 5px;
+}
+
+.sidebar-list li a i {
+    margin-right: 10px;
+}
+
+.sidebar-listB li a i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 10px;
+    overflow-y: auto;
+    background-color: #1a2c38;
+    margin-top: 4px;
+}
+
+.game-card {
+    background-color: #0f212f;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    height: 200px;
+    width: 150px;
+}
+
+.game-card img {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.game-card p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+/* MINES CODE */
+
+.game-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    padding: 0px 30px;
+    background-color: #1a2c38;
+    margin-top: 4px;
+}
+
+.game-container.disabled {
+    opacity: 0.5; /* Adjust the opacity as needed */
+    pointer-events: none; /* Ensure the elements are not interactive */
+}
+
+.betting-controls {
+    width: 250px;
+    background-color: #213744;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.toggle-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggle-button {
+    flex: 1;
+    padding: 12px;
+    background-color: #0f212f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.toggle-button.active {
+    background-color: #0066cc;
+}
+
+.toggle-button:hover{
+    background-color: #0066cc;
+}
+
+.bet-amount,
+.mines-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bet-amount-controls {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    transform: translateX(-15px);
+}
+
+.bet-amount-controls input {
+    padding: 8px 35px;
+    border: 1px solid #0f212f;
+    border-radius: 5px;
+    background-color: #0f212f;
+    color: white;
+    width: 80px;
+    text-align: center;
+    transform: translateX(15px);
+}
+
+.bet-amount-controls input::placeholder{
+    position: absolute;
+    transform: translateX(-25px);
+}
+
+.bet-multiplier {
+    background-color: #0f212f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.bet-multiplier:hover{
+    background-color: #0066cc;
+} 
+
+.currency1 {
+    font-size: 14px;
+}
+
+#mines-select {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #0f212f;
+    color: white;
+}
+
+#bet-button {
+    background-color: #00e701;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.game-board {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f212f;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 40px;
+    transform: translateY(-9px);
+}
+
+.cell {
+    width: 110px;
+    height: 110px;
+    background-color: #2f4553;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+}
+
+.cell:hover {
+    background-color: #556f86;
+}
+
+/* MINES CODE */

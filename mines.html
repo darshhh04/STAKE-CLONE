@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake-like Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <button class="menu-button">☰</button>
+            <img src="stake.png" alt="Stake" class="stake-logo">
+        </div>
+        <div class="navbar-right">
+            <button class="nav-button casino">CASINO</button>
+            <button class="nav-button sports" onclick="alert('ACCESS DENIED');">SPORTS</button>
+            <i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Search" class="search-bar" readonly>
+
+            <i class="fa-solid fa-user" id="user-btn" onclick="show()"></i><div class="user-panel" id="myPanel">
+                <p style="color: white; margin-left: 27px;"><i class="fa-solid fa-circle-user" style="transform: translateX(-6px);"></i>ADMIN</p>
+                <a href="https://www.linkedin.com/in/darshan-bhatarkar-320ab3314/" style="text-decoration: none; color: gray;" arget="_blank"><p style="margin-left: 20px;">Click to Visit Admin's Profile<i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 5px;"></i></p></a>
+            </div>
+
+            <i class="fa-solid fa-bell" id="bell-btn" onclick="show()"></i><div class="notification-panel" id="notificationPanel">
+                <p style="margin-left: 27px;"><i class="fa-regular fa-bell" style="transform: translateX(-5px);"></i>NOTIFICATIONS</p>
+                <p style="color: gray; margin-left: 20px;"><i class="fa-regular fa-bell-slash" style="margin-right: 4px;"></i>NO NOTIFICATIONS</p>
+            </div>
+
+            <i class="fa-solid fa-envelope" id="envelope-btn" onclick="show()"></i><div class="contact-panel" id="contactPanel">
+                <p style="margin-left: 27px;"><i class="fa-regular fa-envelope" style="transform: translateX(-5px);"></i>ADMIN'S EMAIL</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=darshanbhatarkar04@gmail.com" style="text-decoration: none; color: gray;" target="_blank"><P style="margin-left: 20px;">darshanbhatarkar04@gmail.com<i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: 5px;"></i></P></a>
+            </div>
+
+            <button class="wallet-button" id="wallet-btn" onclick="show()">Wallet</button><div class="wallet-panel" id="walletPanel">
+            <button id="deposit-btn">DEPOSIT</button>
+            <button id="withdraw-btn">WITHDRAW</button>
+            <div id="transaction-form" style="display: none;">
+            <input type="number" id="amount-input" placeholder="Enter amount" />
+            <button id="submit-btn">SUBMIT</button>
+    </div>
+            </div>
+            <div id="balance-display">
+            <span id="balance">₹0.00</span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="sidebar-list">
+                <li><a href="#"><i class="fa fa-star"></i> Favourites</a></li>
+                <li><a href="#"><i class="fa fa-clock"></i> Recent</a></li>
+                <li><a href="#"><i class="fa fa-trophy"></i> Challenges</a></li>
+                <li><a href="#"><i class="fa fa-list"></i> My Bets</a></li>
+            </ul>
+            <ul class="sidebar-listB">
+            <li><a href="#">Games</a></li>
+            <li><a href="#"><i class="fa fa-diamond"></i> Stake Originals</a></li>
+            <li><a href="#"><i class="fa fa-gift"></i> Stake Exclusives</a></li>
+            <li><a href="#"><i class="fa fa-sliders"></i> Slots</a></li>
+            <li><a href="#"><i class="fa fa-play-circle"></i> Live Casino</a></li>
+            <li><a href="#"><i class="fa fa-tv"></i> Game Shows</a></li>
+            <li><a href="#"><i class="fa fa-bolt"></i> New Releases</a></li>
+            <li><a href="#"><i class="fa-solid fa-coins"></i> Stake Poker</a></li>
+            <li><a href="#"><i class="fa fa-bullseye"></i> Bonus Buy</a></li>
+            <li><a href="#"><i class="fa fa-percent"></i> Enhanced RTP</a></li>
+            <li><a href="#"><i class="fa fa-table"></i> Table Games</a></li>
+        </ul>
+        </aside>
+        <div class="game-container">
+            <div class="betting-controls">
+                <div class="toggle-buttons">
+                    <button class="toggle-button active">Manual</button>
+                    <button class="toggle-button" onclick="alert('NOT AVAILABLE')">Auto</button>
+                </div>
+                <div class="bet-amount">
+                    <label for="bet-amount-input">Bet Amount</label>
+                    <div class="bet-amount-controls">
+                        <input type="text" id="bet-amount-input" placeholder="₹0.00" autocomplete="off" style="text-align: left;"><i class="fa-brands fa-bitcoin" style="transform: translateX(-10px); color: yellow;"></i>
+                        <button class="bet-multiplier" id="half-btn">½</button>
+                        <button class="bet-multiplier" id="double-btn">2×</button>
+                    </div>
+                </div>
+                <div class="mines-selection">
+                    <label for="mines-select">Mines</label>
+                    <select id="mines-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3" selected>3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+
+                    </select>
+                </div>
+                <button id="bet-button">Bet</button>
+            </div>
+            <div class="game-board">
+                <div class="grid">
+                    <!-- 25 cells -->
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                    <div class="cell"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
