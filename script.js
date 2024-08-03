@@ -253,7 +253,7 @@ function handleCellClick(event) {
         cell.innerHTML = '<img src="mine.png" alt="mine">';
         endGame();
     } else if (cell.classList.contains('diamond')) {
-        cell.innerHTML = '<img src="diamond.png" alt="diamond">';
+        cell.innerHTML = '<img src="diamond.png" height=80px width=100px>';
         cell.style.pointerEvents = 'none';
         revealedCount++;
         checkWin();

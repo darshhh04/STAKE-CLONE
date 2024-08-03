@@ -373,7 +373,7 @@ body {
 
 .betting-controls {
     width: 250px;
-    background-color: #213744;
+    background-color: #213743;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -383,26 +383,29 @@ body {
 .toggle-buttons {
     display: flex;
     justify-content: space-between;
+    background-color: #0f212e;
+    border-radius: 80px;
+    padding: 8px;
 }
 
 .toggle-button {
     flex: 1;
-    padding: 12px;
+    padding: 10px;
     background-color: #0f212f;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 5px;
-    margin: 0 5px;
+    border-radius: 80px;
+    margin: 0 1px;
 }
 
 .toggle-button.active {
-    background-color: #0066cc;
+    background-color: #2f4553;
 }
 
 .toggle-button:hover{
-    background-color: #0066cc;
+    background-color: #2f4553;
 }
 
 .bet-amount,
@@ -428,11 +431,13 @@ body {
     width: 80px;
     text-align: center;
     transform: translateX(15px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bet-amount-controls input::placeholder{
     position: absolute;
     transform: translateX(-25px);
+    color: white;
 }
 
 .bet-multiplier {
@@ -443,6 +448,7 @@ body {
     cursor: pointer;
     font-size: 14px;
     border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .bet-multiplier:hover{
@@ -459,16 +465,18 @@ body {
     border-radius: 5px;
     background-color: #0f212f;
     color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #bet-button {
     background-color: #00e701;
-    color: white;
+    color: black;
     border: none;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .game-board {
@@ -500,6 +508,7 @@ body {
 
 .cell:hover {
     background-color: #556f86;
+    transform: translateY(-2px);
 }
 
 /* MINES CODE */
