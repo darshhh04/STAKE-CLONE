@@ -1,5 +1,5 @@
 body {
-    font-family: proxima-nova, sans-serif;
+    font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400;
     margin: 0;
@@ -100,12 +100,12 @@ body {
     display: none;
     z-index: 1;
     position: absolute;
-    height: 90px;
-    width: 260px;
+    height: 100px;
+    width: 280px;
     background-color: #0f212e;
     border-radius: 10px;
     color: gray;
-    transform: translateX(240px) translateY(64px);
+    transform: translateX(220px) translateY(70px);
     border: 1px white solid;
 }
 
@@ -113,12 +113,12 @@ body {
     display: none;
     z-index: 1;
     position: absolute;
-    height: 85px;
+    height: 95px;
     width: 215px;
     background-color: #0f212e;
     border-radius: 10px;
     color: white;
-    transform: translateX(330px) translateY(62px);
+    transform: translateX(330px) translateY(68px);
     border: 1px white solid;
 }
 
@@ -126,12 +126,12 @@ body {
     display: none;
     z-index: 1;
     position: absolute;
-    height: 90px;
-    width: 300px;
+    height: 100x;
+    width: 330px;
     background-color: #0f212e;
     border-radius: 10px;
     color: white;
-    transform: translateX(290px) translateY(64px);
+    transform: translateX(260px) translateY(68px);
     border: 1px white solid;
 }
 
@@ -265,7 +265,7 @@ body {
 
 .sidebar-list {
     list-style: none;
-    padding: 20px;
+    padding: 20px 0;
     margin: 0;
     background-color: #1a2c38;
     height: 20vh;
@@ -273,7 +273,7 @@ body {
 
 .sidebar-listB{
     list-style: none;
-    padding: 20px;
+    padding: 20px 0;
     margin: 0;
     background-color: #1a2c38;
     height: 58vh;
@@ -286,8 +286,8 @@ body {
     font-size: 13px;
     display: flex;
     align-items: center;
-    padding: 11px 0px;
-
+    padding: 11px 10px;
+    transform: translateY(-14px);
 }
 
 .sidebar-listB li a{
@@ -296,19 +296,19 @@ body {
     font-size: 13px;
     display: flex;
     align-items: center;
-    padding: 11px 0px;
+    padding: 11px 10px;
     margin-bottom: 3px;
 }
 
 .sidebar-list li a:hover {
     background-color: #2f4553;
-    padding: 11px 0px;
+    padding: 11px 10px;
     border-radius: 5px;
 }
 
 .sidebar-listB li a:hover{
     background-color: #2f4553;
-    padding: 11px 0px;
+    padding: 11px 10px;
     border-radius: 5px;
 }
 

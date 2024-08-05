@@ -1,0 +1,150 @@
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .navbar-left {
+        margin-bottom: 10px;
+    }
+
+    .menu-button {
+        margin-right: 10px;
+    }
+
+    .stake-logo {
+        transform: translateX(0);
+    }
+
+    .navbar-right {
+        margin-right: 0;
+    }
+
+    .nav-button {
+        transform: translateX(0);
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .fa-magnifying-glass {
+        transform: translateX(0);
+    }
+
+    .fa-user,
+    .fa-bell,
+    .fa-envelope {
+        transform: translateX(0);
+    }
+
+    .user-panel,
+    .notification-panel,
+    .contact-panel {
+        transform: translateX(0) translateY(0);
+        width: 100%;
+    }
+
+    .wallet-panel {
+        transform: translateX(0) translateY(0);
+        width: 100%;
+    }
+
+    .wallet-button {
+        transform: translateX(0);
+        width: 100%;
+    }
+
+    #balance-display {
+        transform: translateX(0) translateY(0);
+        width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar-list,
+    .sidebar-listB {
+        height: auto;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .game-container {
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .betting-controls {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .game-board {
+        width: 100%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .cell {
+        width: 100%;
+        height: auto;
+    }
+
+    .toggle-buttons {
+        flex-direction: column;
+    }
+
+    .bet-amount-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bet-amount-controls input {
+        width: 100%;
+    }
+
+    .bet-multiplier {
+        width: 100%;
+    }
+
+    .currency1 {
+        font-size: 14px;
+    }
+
+    #mines-select {
+        width: 100%;
+    }
+
+    #bet-button {
+        width: 100%;
+    }
+}
