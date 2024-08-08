@@ -1,5 +1,4 @@
 // PANELS
-
 var myPanel = document.getElementById('myPanel');
 var notificationPanel = document.getElementById('notificationPanel');
 var contactPanel = document.getElementById('contactPanel');
@@ -18,7 +17,7 @@ function show(panel, displayState) {
         return 0;
     } else {
         panel.style.display = 'none';
-        return 1; 
+        return 1;
     }
 }
 
@@ -64,7 +63,7 @@ document.addEventListener('click', function(event) {
 
 // PANELS
 
-// DEPOSIT & WIDRAWL
+// DEPOSIT & WITHDRAWAL
 var transactionForm = document.getElementById('transaction-form');
 var amountInput = document.getElementById('amount-input');
 var submitBtn = document.getElementById('submit-btn');
@@ -155,7 +154,6 @@ betButton.addEventListener('click', function() {
     betAmountInput.value = amount;
 });
 
-
 function updateBetAmountDisplay(amount) {
     betAmountInput.value = amount.toFixed(2);
     betAmountDisplay.textContent = '₹' + amount.toFixed(2);
@@ -199,8 +197,10 @@ startBetButton.addEventListener('click', () => {
         return;
     }
     if (!gameActive) {
+        placeBet(betAmount);
         disableGameOptions(); // Disable options when the game starts
         startGame();
+        toggleButtons(); // Hide bet button and show cashout button
     }
 });
 
@@ -256,6 +256,8 @@ function handleCellClick(event) {
         cell.innerHTML = '<img src="diamond.png" height=80px width=100px>';
         cell.style.pointerEvents = 'none';
         revealedCount++;
+        calculateProfit();
+        profitDisplay.textContent = 'Profit: ₹' + profit.toFixed(2);
         checkWin();
     }
 }
@@ -263,6 +265,8 @@ function handleCellClick(event) {
 // Function to end the game
 function endGame() {
     gameActive = false;
+    profit = 0;
+    profitDisplay.textContent = 'Profit: ₹0.00';
     cells.forEach(cell => {
         cell.style.pointerEvents = 'none';
         if (cell.classList.contains('mine')) {
@@ -273,9 +277,9 @@ function endGame() {
     });
     setTimeout(() => {
         enableGameOptions(); // Enable options after the game ends
-    }, ); // Adjust the delay as needed
+        toggleButtons(); // Show bet button and hide cashout button
+    }, 0); // Adjust the delay as needed
 }
-
 
 // Function to check if the player has won
 function checkWin() {
@@ -285,16 +289,6 @@ function checkWin() {
     }
 }
 
-// Start the game when the Bet button is clicked
-betButton.addEventListener('click', function () {
-    const betAmount = parseFloat(betAmountInput.value);
-  
-    if (!gameActive) {
-        placeBet(betAmount);
-        startGame();
-    }
-});
-
 //for disabling other option while game is on
 const bettingControlDisable = document.querySelector('.betting-controls'); // Add this if you haven't already
 
@@ -302,8 +296,12 @@ function disableGameOptions() {
     bettingControlDisable.style.opacity = 0.5; // Lower the opacity
     const buttons = bettingControlDisable.querySelectorAll('button, select, input');
     buttons.forEach(button => {
-        button.disabled = true; // Disable each element
+        if (button.id !== 'cashout-btn' && button.id !== 'profit-display') {
+            button.disabled = true; // Disable each element except cashout button and profit display
+        }
     });
+    document.getElementById('cashout-btn').style.opacity = 1; // Ensure cashout button opacity is full
+    document.getElementById('profit-display').style.opacity = 1; // Ensure profit display opacity is full
 }
 
 function enableGameOptions() {
@@ -312,8 +310,42 @@ function enableGameOptions() {
     buttons.forEach(button => {
         button.disabled = false; // Enable each element
     });
+    document.getElementById('cashout-btn').disabled = false; // Ensure cashout button is enabled
+    document.getElementById('profit-display').disabled = false; // Ensure profit display is enabled
 }
 
 
+var profitDisplay = document.getElementById('profit-display');//profit add
+var cashoutButton = document.getElementById('cashout-btn');
+var profit = 0;
+var betButton = document.getElementById('bet-button');
 
+function calculateProfit() {
+    const mineCount = minePositions.length;
+    const diamondCount = revealedCount; // Diamonds found so far
+    // Example profit calculation based on mines and diamonds
+    // Adjust the formula as per your game's rules
+    profit = betAmount * (diamondCount / (mineCount + diamondCount));
+}
 
+function cashOut() {
+    if (profit > 0) {
+        balance += profit;
+        updateBalance(balance);
+        profit = 0;
+        profitDisplay.textContent = profit;
+        endGame();
+    }
+}
+
+cashoutButton.addEventListener('click', cashOut);
+
+//toggle btn
+function toggleButtons() {
+    betButton.classList.toggle('hidden');
+    betButton.classList.toggle('visible');
+    profitDisplay.classList.toggle('hidden');
+    profitDisplay.classList.toggle('visible');
+    cashoutButton.classList.toggle('hidden');
+    cashoutButton.classList.toggle('visible');
+}
