@@ -185,24 +185,18 @@ let minePositions = [];
 let revealedCount = 0;
 let gameActive = false;
 
-// Initialize the game when the Bet button is clicked
+let betAmount = 0;
+
 startBetButton.addEventListener('click', () => {
-    const betAmount = parseFloat(betAmountInput.value);
-    if (isNaN(betAmount) || betAmount <= 0) {
-        alert('Please enter a valid bet amount greater than zero.');
-        return;
-    }
-    if (betAmount > balance) {
-        alert('Insufficient balance.');
-        return;
-    }
-    if (!gameActive) {
+    betAmount = parseFloat(betAmountInput.value);
+    if (!isNaN(betAmount) && betAmount > 0 && betAmount <= balance) {
         placeBet(betAmount);
-        disableGameOptions(); // Disable options when the game starts
+        disableGameOptions();
         startGame();
-        toggleButtons(); // Hide bet button and show cashout button
+        toggleButtons();
     }
 });
+
 
 // Function to generate random mine positions
 function generateMinePositions(count) {
@@ -225,6 +219,7 @@ function startGame() {
         cell.classList.remove('mine', 'diamond');
         cell.innerHTML = '';
         cell.style.pointerEvents = 'auto';
+        cell.style.backgroundColor = '';
     });
 
     // Place mines and diamonds
@@ -242,6 +237,7 @@ function startGame() {
     cells.forEach(cell => {
         cell.addEventListener('click', handleCellClick, { once: true });
     });
+
 }
 
 // Function to handle cell click
@@ -250,14 +246,17 @@ function handleCellClick(event) {
 
     const cell = event.target;
     if (cell.classList.contains('mine')) {
-        cell.innerHTML = '<img src="mine.png" alt="mine">';
+        cell.innerHTML = '<img src="mine.png" alt="mine" height65px width=80px style="transform : translateY(15px) translateX(10px);">';
+        cell.style.backgroundColor = '#071824'; // Change color of cell when a diamond is found
+        cell.style.pointerEvents = 'none';
         endGame();
     } else if (cell.classList.contains('diamond')) {
-        cell.innerHTML = '<img src="diamond.png" height=80px width=100px>';
+        cell.innerHTML = '<img src="diamond.png" height=60px width=80px style="transform : translateY(25px);">';
+        cell.style.backgroundColor = '#071824'; // Change color of cell when a diamond is found
         cell.style.pointerEvents = 'none';
         revealedCount++;
         calculateProfit();
-        profitDisplay.textContent = 'Profit: ₹' + profit.toFixed(2);
+        
         checkWin();
     }
 }
@@ -266,13 +265,15 @@ function handleCellClick(event) {
 function endGame() {
     gameActive = false;
     profit = 0;
-    profitDisplay.textContent = 'Profit: ₹0.00';
+    
     cells.forEach(cell => {
         cell.style.pointerEvents = 'none';
         if (cell.classList.contains('mine')) {
-            cell.innerHTML = '<img src="mine.png" alt="mine">';
+            cell.innerHTML = '<img src="mine.png" alt="mine" height=65px width=80px style="transform : translateY(15px) translateX(10px);">';
+            cell.style.backgroundColor = '#071824'; // Change color of cell when a diamond is found
+            cell.style.pointerEvents = 'none';
         } else if (cell.classList.contains('diamond')) {
-            cell.innerHTML = '<img src="diamond.png" alt="diamond">';
+            cell.innerHTML = '<img src="diamond.png" height=60px width=80px style="transform : translateY(25px);">';
         }
     });
     setTimeout(() => {
@@ -322,10 +323,10 @@ var betButton = document.getElementById('bet-button');
 
 function calculateProfit() {
     const mineCount = minePositions.length;
-    const diamondCount = revealedCount; // Diamonds found so far
-    // Example profit calculation based on mines and diamonds
-    // Adjust the formula as per your game's rules
+    const diamondCount = revealedCount;
     profit = betAmount * (diamondCount / (mineCount + diamondCount));
+    profitDisplay.textContent = 'Profit: ₹' + profit.toFixed(2); // Update the profit display
+    console.log(`Profit calculated: ₹${profit.toFixed(2)}`); // Debugging output
 }
 
 function cashOut() {
@@ -333,7 +334,7 @@ function cashOut() {
         balance += profit;
         updateBalance(balance);
         profit = 0;
-        profitDisplay.textContent = profit;
+        profitDisplay.textContent = 'Profit: ₹0.00';
         endGame();
     }
 }
